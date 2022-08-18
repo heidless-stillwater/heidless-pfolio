@@ -14,7 +14,7 @@ DEBUG = config('DEBUG', cast=bool, default=True)
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'https://heidless-portfolio.herokuapp.com',
+    'heidless-portfolio.herokuapp.com',
 ]
 
 # Application definition
