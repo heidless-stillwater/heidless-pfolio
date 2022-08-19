@@ -14,11 +14,11 @@ SECRET_KEY = config('SECRET_KEY')
 if 'SECRET_KEY' in os.environ:
     SECRET_KEY = os.environ["SECRET_KEY"]
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    'heidless-portfolio.herokuapp.com',
-]
+# Generally avoid wildcards(*). However since Heroku router provides hostname validation it is ok
+if IS_HEROKU:
+    ALLOWED_HOSTS = ["*"]
+else:
+    ALLOWED_HOSTS = []
 
 #DEBUG = config('DEBUG')
 DEBUG = config('DEBUG', cast=bool, default=True)
