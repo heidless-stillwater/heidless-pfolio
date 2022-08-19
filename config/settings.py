@@ -9,8 +9,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 IS_HEROKU = "DYNO" in os.environ
 
-print "********************DYNO***************************"
-
 SECRET_KEY = config('SECRET_KEY')
 
 if 'SECRET_KEY' in os.environ:
@@ -25,8 +23,10 @@ else:
 #DEBUG = config('DEBUG')
 #DEBUG = config('DEBUG', cast=bool, default=True)
 
-if not IS_HEROKU: 
+# SECURITY WARNING: don't run with debug turned on in production!
+if not IS_HEROKU:
     DEBUG = True
+
 
 # Application definition
 
