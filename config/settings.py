@@ -9,6 +9,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 IS_HEROKU = "DYNO" in os.environ
 
+print "********************DYNO***************************"
+
 SECRET_KEY = config('SECRET_KEY')
 
 if 'SECRET_KEY' in os.environ:
