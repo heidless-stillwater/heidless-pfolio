@@ -7,7 +7,12 @@ from pathlib import Path
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+IS_HEROKU = "DYNO" in os.environ
+
 SECRET_KEY = config('SECRET_KEY')
+
+if 'SECRET_KEY' in os.environ:
+    SECRET_KEY = os.environ["SECRET_KEY"]
 
 #DEBUG = config('DEBUG')
 DEBUG = config('DEBUG', cast=bool, default=True)
