@@ -21,7 +21,9 @@ else:
     ALLOWED_HOSTS = []
 
 #DEBUG = config('DEBUG')
-DEBUG = config('DEBUG', cast=bool, default=True)
+# DEBUG = config('DEBUG', cast=bool, default=True)
+if not IS_HEROKU:
+    DEBUG = True
 
 # Application definition
 
