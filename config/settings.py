@@ -9,7 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
 
 #DEBUG = config('DEBUG')
-DEBUG = config('DEBUG', cast=bool, default=True)
+DEBUG = config('DEBUG', cast=bool, default=False)
 
 ALLOWED_HOSTS = [
     'localhost',
