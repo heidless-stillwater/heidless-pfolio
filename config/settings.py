@@ -14,14 +14,14 @@ SECRET_KEY = config('SECRET_KEY')
 if 'SECRET_KEY' in os.environ:
     SECRET_KEY = os.environ["SECRET_KEY"]
 
-#DEBUG = config('DEBUG')
-DEBUG = config('DEBUG', cast=bool, default=True)
-
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'heidless-portfolio.herokuapp.com',
 ]
+
+#DEBUG = config('DEBUG')
+DEBUG = config('DEBUG', cast=bool, default=True)
 
 # Application definition
 
