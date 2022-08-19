@@ -143,7 +143,7 @@ USE_TZ = True
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
 # Location where Django collects all static files
 #STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
