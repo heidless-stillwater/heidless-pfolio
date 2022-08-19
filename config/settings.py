@@ -141,10 +141,12 @@ USE_TZ = True
 
 # MEDIA_ROOT is for the user-uploaded content
 
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 STATIC_URL = '/static/'
 
 # Location where Django collects all static files
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Location where we will store our static files
 STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static') ]
