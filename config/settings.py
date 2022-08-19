@@ -14,7 +14,7 @@ DEBUG = config('DEBUG', cast=bool, default=True)
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'heidless-portfolio.herokuapp.com',
+    'heidless-pfolio.herokuapp.com',
 ]
 
 # Application definition
@@ -42,8 +42,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
