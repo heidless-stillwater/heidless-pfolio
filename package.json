@@ -10,7 +10,7 @@
     "lint": "next lint"
   },
   "engines": {
-    "node": "16.13.1",
+    "node": "16.15.1",
     "npm": "8.13.1"
   },
   "author": "MG",
