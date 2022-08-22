@@ -4,29 +4,18 @@ from decouple import config
 from pathlib import Path
 
 
-#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-IS_HEROKU = "DYNO" in os.environ
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = config('SECRET_KEY')
-
-if 'SECRET_KEY' in os.environ:
-    SECRET_KEY = os.environ["SECRET_KEY"]
-
-# Generally avoid wildcards(*). However since Heroku router provides hostname validation it is ok
-if IS_HEROKU:
-    ALLOWED_HOSTS = ["*"]
-else:
-    ALLOWED_HOSTS = []
 
 #DEBUG = config('DEBUG')
 DEBUG = config('DEBUG', cast=bool, default=True)
 
-# SECURITY WARNING: don't run with debug turned on in production!
-#if not IS_HEROKU:
-#    DEBUG = True
-
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'heidless-portfolio.herokuapp.com',
+]
 
 # Application definition
 
@@ -53,9 +42,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -141,15 +130,13 @@ USE_TZ = True
 
 # MEDIA_ROOT is for the user-uploaded content
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
-
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Location where Django collects all static files
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Location where we will store our static files
-STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'staticfiles') ]
+STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static') ]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
